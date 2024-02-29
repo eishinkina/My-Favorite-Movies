@@ -4,10 +4,19 @@
       <img src="/logo.svg" alt="logo" class="header-logo" />
       <h2>Мои любимые фильмы</h2>
     </header>
-    <div class="movies">
-      <h3>Все фильмы</h3>
-      <Movie v-for="movie in movieStore.movies" :key="movie.id" :movie="movie"/>
+    <div class="tabs">
+      <button :class="['btn', {btn_green: movieStore.activeTab === 1}]">любимый фильм</button>
+      <button :class="['btn', {btn_green: movieStore.activeTab === 2}]">поиск фильма</button>
     </div>
+    <div class="movies" v-if="movieStore.activeTab === 1">
+      <h3>Все фильмы</h3>
+      <Movie
+        v-for="movie in movieStore.movies"
+        :key="movie.id"
+        :movie="movie"
+      />
+    </div>
+    <div class="search" v-if="movieStore.activeTab === 2">Поиск...</div>
   </main>
 </template>
 

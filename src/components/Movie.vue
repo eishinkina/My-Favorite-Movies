@@ -13,7 +13,7 @@
         <span class="movie-overview">
           {{ movie.overview }}
         </span>
-        <div class="movie__buttons">
+        <div class="movie-buttons">
           <button class="btn movie-buttons-watched">
             <span v-if="!movie.isWatched">Просмотрено</span>
             <span v-else>Непросмотренный</span>
@@ -73,11 +73,16 @@ const props = defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 15px;
 }
 
 .movie-buttons-watched {
   color: #fff;
   background: #1eb4c3;
+  padding: 10px 15px;
+  border: #1eb4c3;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .movie-buttons-watched__icon {
@@ -88,5 +93,9 @@ const props = defineProps({
 .movie-buttons-delete {
   color: #fff;
   background: #ff2a2a;
+  padding: 10px 15px;
+  border: #ff2a2a;
+  border-radius: 10px;
+  cursor: pointer;
 }
 </style>
