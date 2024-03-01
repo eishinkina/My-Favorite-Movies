@@ -5,10 +5,16 @@
       <h2>Мои любимые фильмы</h2>
     </header>
     <div class="tabs">
-      <button :class="['btn', { btn_green: movieStore.activeTab === 1 }]">
+      <button
+        :class="['btn', { btn_green: movieStore.activeTab === 1 }]"
+        @click="movieStore.setActiveTab(1)"
+      >
         любимый фильм
       </button>
-      <button :class="['btn', { btn_green: movieStore.activeTab === 2 }]">
+      <button
+        :class="['btn', { btn_green: movieStore.activeTab === 2 }]"
+        @click="movieStore.setActiveTab(2)"
+      >
         поиск фильма
       </button>
     </div>

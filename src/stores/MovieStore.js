@@ -10,7 +10,7 @@ export const useMovieStore = defineStore("movieStore", {
           "После укуса генетически измененного паука в Оскорпе занудный, но обаятельный старшеклассник Питер Паркер наделен удивительными способностями, позволяющими ему стать супергероем, известным как Человек-Паук.",
         poster_path: "/gh4cZbhZxyTbgxQPxD0dOudNPTn.jpg",
         release_date: "2002-05-01",
-        isWatched: true,
+        isWatched: false,
       },
       {
         id: 2,
@@ -30,6 +30,18 @@ export const useMovieStore = defineStore("movieStore", {
     },
     totalCountMovies() {
       return this.movies.length;
+    },
+  },
+  actions: {
+    setActiveTab(id) {
+      this.activeTab = id;
+    },
+    toggleWatched(id) {
+      const idx = this.movies.findIndex((el) => el.id === id);
+      this.movies[idx].isWatched = !this.movies[idx].isWatched;
+    },
+    deleteMovie(id) {
+      this.movies = this.movies.filter((el) => el.id !== id);
     },
   },
 });

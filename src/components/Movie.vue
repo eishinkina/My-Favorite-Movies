@@ -14,11 +14,19 @@
           {{ movie.overview }}
         </span>
         <div class="movie-buttons">
-          <button class="btn movie-buttons-watched">
-            <span v-if="!movie.isWatched">Просмотрено</span>
-            <span v-else>Непросмотренный</span>
+          <button
+            class="btn movie-buttons-watched"
+            @click="movieStore.toggleWatched(movie.id)"
+          >
+            <span v-if="!movie.isWatched">Непросмотренный</span>
+            <span v-else>Просмотрено</span>
           </button>
-          <button class="btn movie-buttons-delete">Удалить</button>
+          <button
+            class="btn movie-buttons-delete"
+            @click="movieStore.deleteMovie(movie.id)"
+          >
+            Удалить
+          </button>
         </div>
       </div>
     </div>
@@ -26,6 +34,8 @@
 </template>
 
 <script setup>
+import { useMovieStore } from "../stores/MovieStore";
+const movieStore = useMovieStore();
 const props = defineProps({
   movie: {
     type: Object,
@@ -100,14 +110,14 @@ const props = defineProps({
   color: #fff;
   background: #ff2a2a;
   padding: 10px 15px;
-  border: solid 1px #ff2a2a; 
+  border: solid 1px #ff2a2a;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s; 
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .movie-buttons-delete:hover {
-  background: #e02626; 
-  color: #f5f5f5; 
+  background: #e02626;
+  color: #f5f5f5;
 }
 </style>
