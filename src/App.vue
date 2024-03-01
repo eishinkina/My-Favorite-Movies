@@ -5,11 +5,25 @@
       <h2>Мои любимые фильмы</h2>
     </header>
     <div class="tabs">
-      <button :class="['btn', {btn_green: movieStore.activeTab === 1}]">любимый фильм</button>
-      <button :class="['btn', {btn_green: movieStore.activeTab === 2}]">поиск фильма</button>
+      <button :class="['btn', { btn_green: movieStore.activeTab === 1 }]">
+        любимый фильм
+      </button>
+      <button :class="['btn', { btn_green: movieStore.activeTab === 2 }]">
+        поиск фильма
+      </button>
     </div>
     <div class="movies" v-if="movieStore.activeTab === 1">
-      <h3>Все фильмы</h3>
+      <div>
+        <h3>
+          Просмотренные фильмы (Всего: {{ movieStore.watchedMovies.length }})
+        </h3>
+        <Movie
+          v-for="movie in movieStore.watchedMovies"
+          :key="movie.id"
+          :movie="movie"
+        />
+      </div>
+      <h3>Все фильмы (Всего: {{ movieStore.totalCountMovies }})</h3>
       <Movie
         v-for="movie in movieStore.movies"
         :key="movie.id"

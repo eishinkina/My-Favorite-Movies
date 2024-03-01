@@ -80,9 +80,15 @@ const props = defineProps({
   color: #fff;
   background: #1eb4c3;
   padding: 10px 15px;
-  border: #1eb4c3;
+  border: solid 1px #1eb4c3;
   border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.movie-buttons-watched:hover {
+  background: #1598a0;
+  color: #e0e0e0;
 }
 
 .movie-buttons-watched__icon {
@@ -94,8 +100,14 @@ const props = defineProps({
   color: #fff;
   background: #ff2a2a;
   padding: 10px 15px;
-  border: #ff2a2a;
+  border: solid 1px #ff2a2a; 
   border-radius: 10px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.movie-buttons-delete:hover {
+  background: #e02626; 
+  color: #f5f5f5; 
 }
 </style>
