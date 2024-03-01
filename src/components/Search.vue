@@ -23,10 +23,10 @@
 <script setup>
 import Loader from "../components/Loader.vue";
 import { ref } from "vue";
-import { useSearchStore } from "./../stores/SearchStore";
+import { useSearchStore } from '../stores/SearchStore';
 const searchstore = useSearchStore();
 const searchMovie = ref("");
-import Movie from "./Movie.vue";
+import Movie from "../components/Movie.vue";
 </script>
 
 <style lang="scss" scoped>
