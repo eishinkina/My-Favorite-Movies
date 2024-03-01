@@ -36,14 +36,17 @@
         :movie="movie"
       />
     </div>
-    <div class="search" v-if="movieStore.activeTab === 2">Поиск...</div>
+    <div class="search" v-if="movieStore.activeTab === 2">
+      <Search />
+    </div>
   </main>
 </template>
 
 <script setup>
 import { useMovieStore } from "./stores/MovieStore";
-import Movie from "./components/Movie.vue";
 const movieStore = useMovieStore();
+import Movie from "./components/Movie.vue";
+import Search from "./components/Search.vue";
 </script>
 
 <style lang="scss" scoped>

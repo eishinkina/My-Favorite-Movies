@@ -13,7 +13,7 @@
         <span class="movie-overview">
           {{ movie.overview }}
         </span>
-        <div class="movie-buttons">
+        <div class="movie-buttons" v-if="!isSearch">
           <button
             class="btn movie-buttons-watched"
             @click="movieStore.toggleWatched(movie.id)"
@@ -28,6 +28,9 @@
             Удалить
           </button>
         </div>
+        <div class="movie-buttons" v-else>
+          <button class="btn btn_green">Добавить</button>
+        </div>
       </div>
     </div>
   </div>
@@ -41,6 +44,11 @@ const props = defineProps({
     type: Object,
     required: true,
     default: () => {},
+  },
+  isSearch: {
+    type: Boolean,
+    required: false,
+    default: false,
   },
 });
 </script>
@@ -119,5 +127,19 @@ const props = defineProps({
 .movie-buttons-delete:hover {
   background: #e02626;
   color: #f5f5f5;
+}
+.btn_green {
+  color: black;
+  background: #37df5c;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn_green:hover {
+  background: rgb(150, 245, 150);
+  color: black;
 }
 </style>
